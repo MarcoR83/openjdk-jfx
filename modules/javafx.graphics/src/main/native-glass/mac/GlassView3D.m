@@ -93,7 +93,9 @@
         };
         GLint npix = 0;
         CGLError err = CGLChoosePixelFormat(attributes, &pix, &npix);
-        if ((err == kCGLNoError) && (npix == 0))
+	//TODO: looks russian a little.. but works! 
+	// see also: https://bugs.openjdk.java.net/browse/JDK-8154852
+        if (pix == NULL)
         {
             const CGLPixelFormatAttribute attributes2[] =
             {
